@@ -1,24 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
-
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import LoginPage from "./components/LoginPage";
+import UnitsPage from "./components/UnitsPage";
+import TeacherDashboard from "./components/TeacherDashboard";
+import KeepTrackPage from "./components/KeepTrackPage"; // Add this if missing
+import TextPage from "./components/TextPage";
+import ProfilePage from "./components/ProfilePage"
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<LoginPage />} />
+        <Route path="/units" element={<UnitsPage />} />
+        <Route path="/teacher-dashboard" element={<TeacherDashboard />} />
+        <Route path="/keep-track/" element={<KeepTrackPage />} />
+        <Route path="/text/:textId" element={<TextPage />} /> {/* Add this */}
+        <Route path="/profile/" element={<ProfilePage />} />
+
+      </Routes>
+    </Router>
   );
 }
 
